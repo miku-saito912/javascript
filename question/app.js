@@ -157,16 +157,33 @@ console.log(x);
 // ・・・・・ section 6 ・・・・・
 
 // Q1 標準組み込みオブジェクト
-let random = Math.random(); // 0 ～ 9までの乱数の生成(デフォルトで提供する便利なデータ型がランダムな数字を作成している)
-console.log(random); // ランダムな数字を表示
+let random = Math.floor(Math.random() * 10);
+console.log(random); // 出力「5」(ランダムに切り替わる)
+
+
+// Q1を下記のように修正いたしました。
+//  1. let random : let raandom という変数を作成。
+
+//  2. Math.floor() : 今回はランダムな整数なので、Math.floor関数を使用して、与えられた数値の小数点を切り捨てます。
+
+//  3. Math.random() * 10 : Math.random関数は、0 以上 1 未満の浮動小数点の乱数を生成する関数で「 Math.random() * 10 」で 0～9 の乱数を生成しています。
+
+//  4. Math.floor(Math.random() * 10); : 生成した乱数を、Math.floor関数に渡すことで、小数点を切り捨てている。
+
+//  5. console.log(random); : 0～9 までの整数をrandom変数に代入し、console.log(random); に値を渡すことで、0～9 のランダムな整数を出力しています。
+
+//Math.random関数だけだと小数点のランダムな数値が出力されてしまうので、Math.floor関数を使うことで小数点を切り捨てて、整数のみを出力されるようにしました。
+
 
 
 // Q2 コールバック関数
-function callback() {
+function callback() { //ここが実行される
   console.log('Hello World!');
 }
 setTimeout(callback, 3000); //setTimeoutは一定時間後に特定の処理を行うときに使う
-//上で定義した関数ごと、setTimeoutに渡されて、渡されてから3秒後に関数の処理が実行される
+//上で定義した関数ごと、setTimeoutに渡されて、先に3秒後・その後に関数が実行される
+
+//コールバック関数のメリット..."処理を共通化しつつ"、その時々でやりたいことをやれる
 
 
 // Q3 if
